@@ -46,16 +46,6 @@ Repositori ini menyimpan *source code* untuk **Web Dashboard Admin** (sisi manaj
 
 ---
 
-## 📸 Tampilan Antarmuka
-
-> *Silakan ganti URL gambar di bawah ini dengan screenshot dashboard Anda setelah di-hosting atau via lokal.*
-
-| Halaman Manajemen Data Pelanggan | Dialog Konfirmasi SweetAlert2 |
-| :---: | :---: |
-| <img src="https://via.placeholder.com/400x250?text=Tampilan+Tabel+Pelanggan" width="400" alt="Dashboard Admin" /> | <img src="https://via.placeholder.com/400x250?text=Pop+Up+Konfirmasi+Hapus" width="400" alt="SweetAlert2 PopUp" /> |
-
----
-
 ## 🛠️ Arsitektur Teknologi
 
 Aplikasi ini dibangun menggunakan kombinasi teknologi modern demi menghasilkan performa terbaik:
