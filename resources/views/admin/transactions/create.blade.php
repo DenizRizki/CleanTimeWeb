@@ -5,7 +5,7 @@
     <div class="mb-8">
         <div class="flex justify-between items-end">
             <div>
-                <h2 class="text-3xl font-extrabold text-slate-800">Pencatatan Transaksi</h2>
+                <h2 class="text-3xl font-extrabold text-slate-800 text-white">Pencatatan Transaksi</h2>
                 <p class="text-slate-400 text-sm mt-1">Loket Kasir Utama — Pembuatan invoice laundry baru masuk (Bulk Order).</p>
             </div>
             <div class="bg-slate-50 border border-slate-200 text-slate-600 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">

@@ -4,7 +4,7 @@
         {{-- Header Section --}}
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10">
             <div>
-                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">Ringkasan Bisnis</h2>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight text-white">Ringkasan Bisnis</h2>
                 <p class="text-slate-400 text-sm mt-1">Selamat datang kembali! Pantau performa outlet Clean Time bulan ini.</p>
             </div>
             

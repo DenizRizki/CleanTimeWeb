@@ -3,7 +3,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8">
         <div>
-            <h2 class="text-3xl font-black tracking-tight text-slate-800">Data Pelanggan</h2>
+            <h2 class="text-3xl font-black tracking-tight text-slate-800 text-white">Data Pelanggan</h2>
             <p class="text-slate-400 text-sm mt-0.5">Pantau dan kelola semua data pelanggan Clean Time.</p>
         </div>
         
@@ -146,100 +146,105 @@
         {{ $customers->appends(['search' => request('search')])->links() }}
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const selectAll = document.getElementById('select-all-customers');
-            const checkboxes = document.querySelectorAll('.customer-checkbox');
-            const form = document.getElementById('bulk-delete-customers-form');
-            const btnSubmitBulk = document.getElementById('btn-submit-bulk-delete');
-            const countSpan = document.getElementById('customers-delete-count');
-            const hiddenInput = document.getElementById('selected-customers-ids');
-            const btnSingleDeletes = document.querySelectorAll('.btn-single-delete');
-
-btnSingleDeletes.forEach(button => {
-    button.addEventListener('click', function () {
-        const form = this.closest('.form-single-delete');
-        const customerName = this.getAttribute('data-name');
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectAll = document.getElementById('select-all-customers');
+        const checkboxes = document.querySelectorAll('.customer-checkbox');
+        const formBulk = document.getElementById('bulk-delete-customers-form');
+        const btnSubmitBulk = document.getElementById('btn-submit-bulk-delete');
+        const countSpan = document.getElementById('customers-delete-count');
+        const hiddenInput = document.getElementById('selected-customers-ids');
         
-        Swal.fire({
-            title: 'Hapus Pelanggan?',
-            text: `Data pelanggan "${customerName}" akan dihapus permanen!`,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#1e293b', 
-            cancelButtonColor: '#f43f5e',  
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal',
-            reverseButtons: true,
-            customClass: {
-                popup: 'rounded-[2rem]',
-                confirmButton: 'rounded-xl font-bold text-sm px-5 py-3',
-                cancelButton: 'rounded-xl font-bold text-sm px-5 py-3'
-            }
-        }).then((result) => {
-            if (result.isConfirmed) {
-                form.submit();
-            }
-        });
-    });
-});
+        // TYPO DIPERBAIKI DI SINI:
+        const btnSingleDeletes = document.querySelectorAll('.btn-single-delete');
 
-            function updateVisibility() {
-                const checked = document.querySelectorAll('.customer-checkbox:checked');
-                if (checked.length > 0) {
-                    const ids = Array.from(checked).map(cb => cb.value);
-                    hiddenInput.value = ids.join(',');
-                    countSpan.textContent = checked.length;
-                    form.classList.remove('hidden');
-                } else {
-                    form.classList.add('hidden');
-                    hiddenInput.value = '';
-                }
-            }
-
-            if(selectAll) {
-                selectAll.addEventListener('change', function () {
-                    checkboxes.forEach(cb => cb.checked = this.checked);
-                    updateVisibility();
-                });
-            }
-
-            checkboxes.forEach(cb => {
-                cb.addEventListener('change', function () {
-                    if (!this.checked && selectAll) selectAll.checked = false;
-                    if (document.querySelectorAll('.customer-checkbox:checked').length === checkboxes.length && selectAll) {
-                        selectAll.checked = true;
+        // Logika Hapus Single
+        btnSingleDeletes.forEach(button => {
+            button.addEventListener('click', function () {
+                const form = this.closest('.form-single-delete');
+                const customerName = this.getAttribute('data-name');
+                
+                Swal.fire({
+                    title: 'Hapus Pelanggan?',
+                    text: `Data pelanggan "${customerName}" akan dihapus permanen!`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#1e293b', 
+                    cancelButtonColor: '#f43f5e',  
+                    confirmButtonText: 'Ya, Hapus!',
+                    cancelButtonText: 'Batal',
+                    reverseButtons: true,
+                    customClass: {
+                        popup: 'rounded-[2rem]',
+                        confirmButton: 'rounded-xl font-bold text-sm px-5 py-3',
+                        cancelButton: 'rounded-xl font-bold text-sm px-5 py-3'
                     }
-                    updateVisibility();
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
                 });
             });
-
-            if (btnSubmitBulk) {
-                btnSubmitBulk.addEventListener('click', function () {
-                    const count = countSpan.textContent;
-                    
-                    Swal.fire({
-                        title: 'Apakah Anda yakin?',
-                        text: `Sebanyak ${count} data pelanggan terpilih akan dihapus permanen!`,
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#1e293b', 
-                        cancelButtonColor: '#f43f5e',  
-                        confirmButtonText: 'Ya, Hapus Permanen',
-                        cancelButtonText: 'Kembali',
-                        reverseButtons: true,
-                        customClass: {
-                            popup: 'rounded-[2rem]',
-                            confirmButton: 'rounded-xl font-bold text-sm px-5 py-3',
-                            cancelButton: 'rounded-xl font-bold text-sm px-5 py-3'
-                        }
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            form.submit();
-                        }
-                    });
-                });
-            }
         });
-    </script>
+
+        // Logika Update Checkbox Bulk Delete
+        function updateVisibility() {
+            const checked = document.querySelectorAll('.customer-checkbox:checked');
+            if (checked.length > 0) {
+                const ids = Array.from(checked).map(cb => cb.value);
+                hiddenInput.value = ids.join(',');
+                countSpan.textContent = checked.length;
+                formBulk.classList.remove('hidden');
+            } else {
+                formBulk.classList.add('hidden');
+                hiddenInput.value = '';
+            }
+        }
+
+        if(selectAll) {
+            selectAll.addEventListener('change', function () {
+                checkboxes.forEach(cb => cb.checked = this.checked);
+                updateVisibility();
+            });
+        }
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', function () {
+                if (!this.checked && selectAll) selectAll.checked = false;
+                if (document.querySelectorAll('.customer-checkbox:checked').length === checkboxes.length && selectAll) {
+                    selectAll.checked = true;
+                }
+                updateVisibility();
+            });
+        });
+
+        // Logika Submit Bulk Delete
+        if (btnSubmitBulk) {
+            btnSubmitBulk.addEventListener('click', function () {
+                const count = countSpan.textContent;
+                
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: `Sebanyak ${count} data pelanggan terpilih akan dihapus permanen!`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#1e293b', 
+                    cancelButtonColor: '#f43f5e',  
+                    confirmButtonText: 'Ya, Hapus Permanen',
+                    cancelButtonText: 'Kembali',
+                    reverseButtons: true,
+                    customClass: {
+                        popup: 'rounded-[2rem]',
+                        confirmButton: 'rounded-xl font-bold text-sm px-5 py-3',
+                        cancelButton: 'rounded-xl font-bold text-sm px-5 py-3'
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        formBulk.submit(); // Pastikan merujuk ke formBulk
+                    }
+                });
+            });
+        }
+    });
+</script>
 </x-app-layout>

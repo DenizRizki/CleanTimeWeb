@@ -4,7 +4,7 @@
 
     <div class="flex justify-between items-end mb-8">
         <div>
-            <h2 class="text-3xl font-extrabold text-slate-800">Riwayat Transaksi</h2>
+            <h2 class="text-3xl font-extrabold text-slate-800 text-white">Riwayat Transaksi</h2>
             <p class="text-gray-400 text-sm mt-1">Pantau semua pesanan laundry yang masuk hari ini.</p>
         </div>
         

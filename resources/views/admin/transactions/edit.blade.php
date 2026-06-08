@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="mb-6 flex justify-between items-center">
         <div>
-            <h2 class="text-2xl font-bold text-slate-800">Koreksi / Edit Transaksi</h2>
+            <h2 class="text-2xl font-bold text-slate-800 text-white">Koreksi / Edit Transaksi</h2>
             <p class="text-slate-500 text-sm">Mengubah Nota: <span class="font-mono font-bold text-indigo-600">{{ $transaction->invoice_code }}</span></p>
         </div>
         <a href="{{ route('admin.transactions.index') }}" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-medium transition">

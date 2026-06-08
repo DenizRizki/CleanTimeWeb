@@ -5,7 +5,7 @@
     {{-- Header Section --}}
     <div class="flex justify-between items-end mb-8">
         <div>
-            <h2 class="text-3xl font-extrabold text-slate-800">Layanan & Harga</h2>
+            <h2 class="text-3xl font-extrabold text-slate-800 text-white">Layanan & Harga</h2>
             <p class="text-slate-400 text-sm mt-1">Atur daftar harga jasa laundry Clean Time.</p>
         </div>
         

@@ -1,16 +1,16 @@
 <x-app-layout>
-    <div class="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8 bg-slate-50/50 min-h-screen">
+    <div class="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8 min-h-screen">
         
         {{-- Navigation Header --}}
         <div class="mb-8 pl-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-                <a href="{{ route('admin.customers.index') }}" class="text-sm font-bold text-slate-400 hover:text-slate-800 transition flex items-center gap-2 group mb-3 w-fit">
+                <a href="{{ route('admin.customers.index') }}" class="text-sm font-bold text-slate-400 hover:text-slate-200 transition flex items-center gap-2 group mb-3 w-fit">
                     <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                     </svg>
                     Kembali ke Data Pelanggan
                 </a>
-                <h2 class="text-3xl font-black tracking-tight text-slate-800">Profil Pelanggan</h2>
+                <h2 class="text-3xl font-black tracking-tight text-slate-800 text-white">Profil Pelanggan</h2>
                 <p class="text-slate-400 text-sm mt-0.5">Detail informasi akun dan hak akses login aplikasi.</p>
             </div>
             
