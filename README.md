@@ -50,7 +50,7 @@ Repositori ini menyimpan *source code* untuk **Web Dashboard Admin** (sisi manaj
 
 Aplikasi ini dibangun menggunakan kombinasi teknologi modern demi menghasilkan performa terbaik:
 
-* **Core Framework:** Laravel 10.x / 11.x (Robust & Secure)
+* **Core Framework:** Laravel 12 (Robust & Secure)
 * **Frontend UI Engine:** Laravel Blade Templates & Tailwind CSS (Utility-First Framework)
 * **Interaktivitas:** Vanilla JavaScript (ES6+) & SweetAlert2 Plugin
 * **Database Driver:** MySQL / MariaDB dengan optimasi *Eloquent Relationship (Eager Loading)*
